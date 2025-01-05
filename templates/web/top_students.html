@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Top Students</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center;">Top 3 Students by Year</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Year</th>
+                <th>Student Name</th>
+                <th>Student ID</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for index, student in top_students.iterrows() %}
+            <tr>
+                <td>{{ student['Year'] }}</td>
+                <td>{{ student['Name'] }}</td>
+                <td>{{ student['Student ID'] }}</td>
+                <td>{{ student['score']|round(2) }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
